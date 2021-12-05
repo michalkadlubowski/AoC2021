@@ -3,7 +3,7 @@ module day1
 open utils
 
 let dataAsInts =
-    readLines ("data\\01-01.txt")
+    readLines ("data\\01.txt")
     |> Seq.map System.Int32.Parse
 
 let answer1 () =
