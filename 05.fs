@@ -14,7 +14,7 @@ let parseLine (line: string) =
     let p2 = parsePoint points.[1]
     (p1, p2)
 
-let getInput =
+let getInput () =
     readLines ("data\\05.txt") |> Seq.map parseLine
 
 let expandPoints withDiagonals (p1: int * int) (p2: int * int) =
@@ -49,6 +49,6 @@ let countNonUniquePoins withDiagonals points =
     |> Seq.filter (fun x -> Seq.length (snd x) > 1)
     |> Seq.length
 
-let answer1 () = getInput |> countNonUniquePoins false
+let answer1 () = getInput () |> countNonUniquePoins false
 
-let answer2 () = getInput |> countNonUniquePoins true
+let answer2 () = getInput () |> countNonUniquePoins true

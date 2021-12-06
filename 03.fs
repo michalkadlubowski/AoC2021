@@ -9,7 +9,7 @@ let parse (str: string) =
     |> Seq.map (fun x -> x |> charToInt)
     |> Seq.toArray
 
-let getInputAs2DArray =
+let getInputAs2DArray () =
     readLines ("data\\03.txt")
     |> Seq.map parse
     |> Seq.toArray
@@ -59,12 +59,12 @@ let bitIntArrToNum arr =
 
 let answer1 () =
     let gammaRate =
-        getInputAs2DArray
+        getInputAs2DArray ()
         |> getMostCommonByColumn
         |> bitIntArrToNum
 
     let epsilonRate =
-        getInputAs2DArray
+        getInputAs2DArray ()
         |> getLeastCommonByColumn
         |> bitIntArrToNum
 
@@ -72,12 +72,12 @@ let answer1 () =
 
 let answer2 () =
     let oxygenGeneratorRating =
-        getInputAs2DArray
+        getInputAs2DArray ()
         |> eliminateByMostCommon 0
         |> bitIntArrToNum
 
     let co2ScrubberRating =
-        getInputAs2DArray
+        getInputAs2DArray ()
         |> eliminateByLeastCommon 0
         |> bitIntArrToNum
 

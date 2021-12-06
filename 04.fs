@@ -17,7 +17,7 @@ let parseBoard (boardStr: string) =
 
     nums
 
-let getInput =
+let getInput () =
     let chunks =
         System
             .IO
@@ -74,7 +74,7 @@ let tryAllBoards (boards: BoardField [,] []) (num: int) =
     |> Array.tryPick (fun x -> snd x)
 
 let answer1 () =
-    let (nums, boards) = getInput
+    let (nums, boards) = getInput ()
 
     let res =
         nums |> Seq.pick (fun x -> tryAllBoards boards x)
@@ -82,7 +82,7 @@ let answer1 () =
     res
 
 let answer2 () =
-    let (nums, boards) = getInput
+    let (nums, boards) = getInput ()
     let mutable latestScore = 0
 
     for num in nums do
