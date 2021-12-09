@@ -4,8 +4,6 @@ open utils
 type Position = int * int
 
 let getInput () =
-    let charToInt c = int c - int '0'
-
     (System.IO.File.ReadAllLines("data\\09.txt"))
     |> Seq.map (fun x -> x.ToCharArray() |> Seq.map charToInt)
     |> array2D
