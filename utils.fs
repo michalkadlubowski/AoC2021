@@ -3,6 +3,8 @@ module utils
 
 open System.IO
 
+type Position = int * int
+
 let readLines (filePath: string) =
     seq {
         use sr = new StreamReader(filePath)
@@ -34,6 +36,27 @@ let array2DtoJagged<'a> (arr: 'a [,]) : 'a [] [] =
 let array2DtoJaggedColumns<'a> (arr: 'a [,]) : 'a [] [] =
     [| for x in 0 .. Array2D.length2 arr - 1 do
            yield [| for y in 0 .. Array2D.length1 arr - 1 -> arr.[y, x] |] |]
+
+let transformations: (int -> Position -> Position) [] =
+    [| (fun offset (x, y) -> x - offset, y)
+       (fun offset (x, y) -> x + offset, y)
+       (fun offset (x, y) -> x, y + offset)
+       (fun offset (x, y) -> x, y - offset)
+       (fun offset (x, y) -> x + offset, y + offset)
+       (fun offset (x, y) -> x + offset, y - offset)
+       (fun offset (x, y) -> x - offset, y + offset)
+       (fun offset (x, y) -> x - offset, y - offset) |]
+
+let withinBounds<'a> (postion: Position) (grid: 'a [,]) =
+    let width = grid |> Array2D.length1
+    let height = grid |> Array2D.length2
+    let (x, y) = postion
+    (0 <= x && x < width) && (0 <= y && y < height)
+
+let getNeighbouringTilesWithDiagonals (postion: Position) (grid) =
+    transformations
+    |> Array.map (fun transformFun -> transformFun 1 postion)
+    |> Array.filter (fun position -> (withinBounds position grid))
 
 let find2Dindex<'a when 'a: equality> (arr: 'a [,]) matchFn : Option<int * int> =
     let rec go x y =
