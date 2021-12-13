@@ -2,7 +2,7 @@
 module AoC2020
 
 open System
-open day11
+open day12
 
 [<EntryPoint>]
 let main argv =

@@ -15,6 +15,9 @@
     <Content Include="data\07.txt" />
     <Content Include="data\08.txt" />
     <Content Include="data\09.txt" />
+    <Content Include="data\10.txt" />
+    <Content Include="data\11.txt" />
+    <Content Include="data\12.txt" />
     <Compile Include="utils.fs" />
     <Compile Include="01.fs" />
     <Compile Include="02.fs" />
@@ -26,6 +29,7 @@
     <Compile Include="09.fs" />
     <Compile Include="10.fs" />
     <Compile Include="11.fs" />
+    <Compile Include="12.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
