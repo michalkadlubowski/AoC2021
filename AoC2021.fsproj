@@ -20,6 +20,7 @@
     <Content Include="data\12.txt" />
     <Content Include="data\13.txt" />
     <Content Include="data\14.txt" />
+    <Content Include="data\15.txt" />
     <Compile Include="utils.fs" />
     <Compile Include="01.fs" />
     <Compile Include="02.fs" />
@@ -34,7 +35,12 @@
     <Compile Include="12.fs" />
     <Compile Include="13.fs" />
     <Compile Include="14.fs" />
+    <Compile Include="15.fs" />
     <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FSharpx.Collections" Version="3.0.1" />
   </ItemGroup>
 
 </Project>
