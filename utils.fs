@@ -81,3 +81,6 @@ let find2Dindex<'a when 'a: equality> (arr: 'a [,]) matchFn : Option<int * int> 
             go (x + 1) y
 
     go 0 0
+
+let cartesian xs ys =
+    xs |> List.collect (fun x -> ys |> List.map (fun y -> x, y))
